@@ -5,9 +5,11 @@ const port = process.env.PORT || 3000;
 const cors = require('cors');
 
 
-    app.use(cors({
+   /* app.use(cors({
         origin: 'https://blue-flower-08292cd03.5.azurestaticapps.net'
-    }));
+    }));*/
+
+    app.use(cors());
     
 
 
