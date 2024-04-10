@@ -16,19 +16,19 @@ app.use(express.json());
 const cars = require('./cars.json');
 
 //get all cars
-app.get('/backend-api/cars', (req, res) => {
+app.get('/cars', (req, res) => {
     res.json(cars);
 });
 
 //get car by id
-app.get('/backend-api/cars/:id', (req, res) => {
+app.get('/cars/:id', (req, res) => {
     const id = req.params.id;
     const car = cars.find(car => car.id === id);
     res.json(car);
 });
 
 //update car
-app.put('/backend-api/cars/:id', (req, res) => {
+app.put('/cars/:id', (req, res) => {
     const id = req.params.id;
     const updatedCar = req.body;
     const index = cars.findIndex(car => car.id === id);
@@ -37,7 +37,7 @@ app.put('/backend-api/cars/:id', (req, res) => {
 });
 
 //delete car
-app.delete('/backend-api/cars/:id', (req, res) => {
+app.delete('/cars/:id', (req, res) => {
     const id = req.params.id;
     const index = cars.findIndex(car => car.id === id);
     cars.splice(index, 1);
@@ -45,7 +45,7 @@ app.delete('/backend-api/cars/:id', (req, res) => {
 });
 
 //add car
-app.post('/backend-api/cars', (req, res) => {
+app.post('/cars', (req, res) => {
     const newCar = req.body;
     cars.push(newCar);
     res.json(newCar);
